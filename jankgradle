@@ -1,0 +1,29 @@
+#!/bin/bash
+
+case $1 in
+
+clean)
+rm Servertest.jar Servertest.class
+;;
+
+build)
+javac Servertest.java
+;;
+
+package)
+jar -cfe Servertest.jar Servertest Servertest.class
+;;
+
+run)
+java Servertest
+;;
+
+
+*)
+rm Servertest.jar Servertest.class
+javac Servertest.java
+jar -cfe Servertest.jar Servertest Servertest.class
+java Servertest
+echo All set. Script finished executing and server connection closed!
+
+esac
